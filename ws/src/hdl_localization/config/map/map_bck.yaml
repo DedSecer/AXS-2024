@@ -1,0 +1,7 @@
+image: /home/gyh/lesson7/hdl_loc/src/hdl_localization/config/map/map.pgm
+resolution: 0.050000
+origin: [-5.431036, -1.427973, 0.000000]
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.196
+

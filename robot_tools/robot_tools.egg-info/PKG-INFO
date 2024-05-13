@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: robot-tools
+Version: 1.0
+Summary: Robot Tools.
+Home-page: https://gitlab.com/OpenGHz/airbot_play_vision_python.git
+Author: GHz
+Author-email: ghz23@mails.tsinghua.edu.cn
+License: MIT
+License-File: LICENSE
+Requires-Dist: numpy>=1.19.5
+Requires-Dist: scipy
+Requires-Dist: matplotlib
