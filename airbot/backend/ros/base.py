@@ -168,6 +168,7 @@ class RosBase(Base, backend="ros"):
             self._thread_flag.wait()
             try:
                 lidar_world_pose = self.tf_sub.lookupTransform("3dmap", "livox_frame", rospy.Time(0))
+                # lidar_world_pose = self.tf_sub.lookupTransform("camera_init", "livox_frame", rospy.Time(0))
                 car_lidar_pose = (np.array([-0.31686, 0, -0.26705]), np.zeros(3))
 
                 car_world_pose = CoordinateTools.to_world_coordinate(car_lidar_pose,lidar_world_pose)
