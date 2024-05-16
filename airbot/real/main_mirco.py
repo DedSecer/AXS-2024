@@ -407,10 +407,9 @@ class Solution:
         if self.bowl_placed == 3:
             return
         if self.b1a2 is None:
-            arm_move_t = Thread(target = self.arm.move_end_to_pose, args = self.B1_OBSERVE_ARM_POSE_2)
+            self.arm.move_end_to_pose(*self.B1_OBSERVE_ARM_POSE_2)
         else:
-            arm_move_t = Thread(target = self.arm.move_end_to_pose, args = self.B1_OBSERVE_ARM_POSE_1)
-        arm_move_t.start()
+            self.arm.move_end_to_pose(*self.B1_OBSERVE_ARM_POSE_1)
         self.base.move_to(*self.GRASP_POSE_1,'world', False)
         time.sleep(2)
         # look at what objects in the current position
@@ -477,8 +476,7 @@ class Solution:
     def look_for_bowl_in_2(self):
         if self.bowl_placed == 3:
             return
-        arm_move_t = Thread(target = self.arm.move_end_to_pose, args = self.B2_OBSERVE_ARM_POSE)
-        arm_move_t.start()
+        self.arm.move_end_to_pose(*self.B2_OBSERVE_ARM_POSE)
         self.base.move_to(*self.GRASP_POSE_2,'world', False)
         time.sleep(2)
         # look at what objects in the current position
@@ -547,8 +545,7 @@ class Solution:
 
     def look_for_mug_in_1(self):
         self._prompt = 'cup'
-        arm_pose_1_t = Thread(target = self.arm.move_end_to_pose, args = self.B1_OBSERVE_ARM_POSE_1)
-        arm_pose_1_t.start()
+        self.arm.move_end_to_pose(*self.B1_OBSERVE_ARM_POSE_1)
         self.base.move_to(*self.GRASP_POSE_1, 'world', False)
         time.sleep(1)
         cp = None
@@ -589,8 +586,7 @@ class Solution:
 
     def look_for_mug_in_2(self):
         self._prompt = 'cup'
-        arm_pose_t = Thread(target = self.arm.move_end_to_pose, args = self.B2_OBSERVE_ARM_POSE)
-        arm_pose_t.start()
+        self.arm.move_end_to_pose(*self.B2_OBSERVE_ARM_POSE)
         self.base.move_to(*self.GRASP_POSE_2, 'world', False)
         time.sleep(2)
         cp = None

@@ -693,8 +693,6 @@ if __name__ == '__main__':
     s.start_lm()
     s.wait_for_lm()
 
-    print("to close ")
-    s.close_microwave()
 
     print("look for bowl in pose 1")
     s.look_for_bowl_in_1()
