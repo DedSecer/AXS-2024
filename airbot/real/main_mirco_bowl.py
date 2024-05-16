@@ -285,12 +285,10 @@ class Solution:
 
         cloud = self.base_cloud(_image, _depth, self.camera.INTRINSIC, self.CAMERA_SHIFT, self.arm.end_pose)
 
-        grasp_position = cloud[ _bbox[0], _bbox[1] - _bbox[3] // 2 + 8][:3]
-        # grasp_position = [_bbox[1] - _bbox[3] / 2, _bbox[0], 0]
-        if self._prompt == 'cup':
-            grasp_position[2] = -0.168
-        else:
-            grasp_position[2] = -0.16
+        # grasp_position = cloud[ _bbox[0], _bbox[1] - _bbox[3] // 2 + 8][:3]
+        grasp_position = [_bbox[1] - _bbox[3] / 2, _bbox[0], 0]
+
+        grasp_position[2] = 0.2
         grasp_rotation = Rotation.from_euler('xyz', [0, np.pi / 2, 0], degrees=False).as_quat()
 
         print('grasp_position',grasp_position)
